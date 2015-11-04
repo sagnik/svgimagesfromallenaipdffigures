@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdfLog glyphs="true">
+    <fontList>
+        <font name="Times-Bold" family="Times-Bold"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="Times-Bold" bold="false"
+        italic="false" symbol="false"/>
+        <font name="TOAAAA+Fy" family="Fy"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="TOAAAA+Fy" bold="false"
+        italic="false" symbol="true"/>
+        <font name="Times-Roman" family="Times-Roman"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="Times-Roman" bold="false"
+        italic="false" symbol="false"/>
+        <font name="KOAAAA+Ft" family="Ft"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="KOAAAA+Ft" bold="false"
+        italic="false" symbol="true"/>
+        <font name="JOAAAA+Fs" family="Fs"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="JOAAAA+Fs" bold="false"
+        italic="false" symbol="true"/>
+        <font name="IOAAAA+Fr" family="Fr"
+        type="Font" encoding="WinAnsiEncoding"
+        fontencoding="WinAnsiEncoding" basefont="IOAAAA+Fr"
+        bold="false" italic="false" symbol="true"/>
+        <font name="Times-Italic" family="Times-Italic"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="Times-Italic"
+        bold="false" italic="false" symbol="false"/>
+        <font name="GOAAAA+Fp" family="Fp"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="GOAAAA+Fp" bold="false"
+        italic="false" symbol="true"/>
+        <font name="FOAAAA+Fo" family="Fo"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="FOAAAA+Fo" bold="false"
+        italic="false" symbol="true"/>
+        <font name="EOAAAA+Fn" family="Fn"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="EOAAAA+Fn" bold="false"
+        italic="false" symbol="true"/>
+        <font name="Courier" family="Courier"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="Courier" bold="false" italic="false"
+        symbol="false"/>
+        <font name="Times-BoldItalic" family="Times-BoldItalic"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="Times-BoldItalic"
+        bold="false" italic="false" symbol="false"/>
+        <font name="ONAAAA+Ff" family="Ff"
+        type="Font" encoding="WinAnsiEncoding"
+        fontencoding="WinAnsiEncoding" basefont="ONAAAA+Ff"
+        bold="false" italic="false" symbol="true"/>
+        <font name="NNAAAA+Fe" family="Fe"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="NNAAAA+Fe" bold="false"
+        italic="false" symbol="true"/>
+        <font name="MNAAAA+Fd" family="Fd"
+        type="Font" encoding="WinAnsiEncoding"
+        fontencoding="WinAnsiEncoding" basefont="MNAAAA+Fd"
+        bold="false" italic="false" symbol="true"/>
+        <font name="INAAAA+Fb" family="Fb"
+        type="Font" encoding="WinAnsiEncoding"
+        fontencoding="WinAnsiEncoding" basefont="INAAAA+Fb"
+        bold="false" italic="false" symbol="true"/>
+        <font name="HNAAAA+Fa" family="Fa"
+        type="Font" encoding="DictionaryEncoding"
+        fontencoding="DictionaryEncoding"
+        basefont="HNAAAA+Fa" bold="false"
+        italic="false" symbol="true"/>
+        <font name="Helvetica" family="Helvetica"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="Helvetica"
+        bold="false" italic="false" symbol="false"/>
+    </fontList>
+    <pdf filename="/home/szr163/svgimagesfromallenaipdffigures/src/test/resources/10.1.1.101.912.pdf"
+    pageCount="8">
+        <page num="1"/>
+        <page num="2"/>
+        <page num="3"/>
+        <page num="4"/>
+        <page num="5"/>
+        <page num="6"/>
+        <page num="7"/>
+        <page num="8"/>
+    </pdf>
+</pdfLog>
