@@ -28,17 +28,13 @@ object PageSVGtoFigureSVG {
 
   def pixelToPoints(bb:Seq[Int]):Seq[Float]= bb.map(x=>x.toFloat*DPICONSTANT)
 
-  /*
-  TODO: Reading SVG path strings by splitting the text on newlines. This is a wrong approach. Change this, also, the same thing in pdffigures-scala repo. Test using 10.1.1.353.3090.pdf.
-   */
-
   def getFigureSVG(bb:Seq[Float],pNum:Int, svgFiles:Seq[String])={
     val svgPathsThisPage= svgFiles
       .flatMap(
         a=>{
           val pageNo=a.substring(0,a.length-4).split("-").last.replace("page","").toInt //TODO: possible exception, should be handled
           if (pNum==pageNo) {
-            io.Source.fromFile(a).mkString.split("\n").drop(5).dropRight(1).map(x => x.trim)
+            xmlStringSplit(io.Source.fromFile(a).mkString).map(x => x.trim) //TODO: possible exception, should be handled
               .map(
                 x => Some(SVGPathString(x,
                   getPathBoundingBox(x),
@@ -50,8 +46,13 @@ object PageSVGtoFigureSVG {
         }
       ).toIndexedSeq.flatten
 
-    svgPathsThisPage.filter(y=>rectInside(y.bb,rectFromFloatSeq(bb),2f))
+    svgPathsThisPage.filter(y=>rectInside(y.bb,rectFromFloatSeq(bb),10f))
 
+  }
+
+  def xmlStringSplit(s:String)={
+    val xmlContent=xml.XML.loadString(s)
+    (xmlContent \\ "path").map(a=>a.toString)++(xmlContent \\ "text").map(a=>a.toString)++(xmlContent \\ "image").map(a=>a.toString)
   }
 
   /*This is a bit of hack. We want bounding boxes for characters, raster graphics as well as graphics paths. The algorithm to extract these

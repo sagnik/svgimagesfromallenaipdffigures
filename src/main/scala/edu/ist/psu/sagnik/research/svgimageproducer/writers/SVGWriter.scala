@@ -8,7 +8,9 @@ import scala.reflect.io.File
  */
 object SVGWriter {
 
-  def apply(fc:SVGImageCaption,loc:String):Unit={
+  def apply(fc:SVGImageCaption,svgLoc:String):Unit=apply(fc,svgLoc,"")
+
+  def apply(fc:SVGImageCaption,svgLoc:String,pageSVGLoc:String):Unit={
     //println("in svg writer"+loc)
 
     val figBB=fc.ImageBB
@@ -20,6 +22,16 @@ object SVGWriter {
       (figBB.y2-figBB.y1).toString +
       "\" stroke=\"none\" stroke-width=\"0.0\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svgx=\"http://www.xml-cml.org/schema/svgx\">"
 
+    //TODO: Should handle exceptions here? Also, should the clipPath co ordinates be changed?
+    val svgDefString=
+      if ("".equalsIgnoreCase(pageSVGLoc)) "\n"
+      else
+      (xml.XML.loadString(io.Source.fromFile(pageSVGLoc).mkString) \\ "defs").headOption match{
+        case Some(y) => y.toString
+        case _ => "\n"
+      }
+
+
     val svgCloser="</svg>"
 
     val xTranslate=(figBB.x1*(-1)).toString
@@ -30,8 +42,9 @@ object SVGWriter {
 
     val transformTranslatePair=("transform=\"", "transform=\"translate("+xTranslate+","+yTranslate+") ")
 
-    File(loc).writeAll(
+    File(svgLoc).writeAll(
       svgHeader+"\n"+
+        //svgDefString+"\n"+
         svgStrings.foldLeft("")((a,b)=>
           if (b.contains("transform")) a+b.replaceAll(transformTranslatePair._1,transformTranslatePair._2)+"\n"
           else

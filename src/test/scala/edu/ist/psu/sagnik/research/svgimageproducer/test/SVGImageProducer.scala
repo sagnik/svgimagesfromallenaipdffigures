@@ -20,7 +20,8 @@ class SVGImageProducerTest extends FunSpec {
       svgImageCaption match{
         case Some(svgImageCaptionNN) =>
         {
-          SVGWriter(svgImageCaptionNN,figureJSONLoc.substring(0,figureJSONLoc.length-4)+"svg")
+          SVGWriter(svgImageCaptionNN,figureJSONLoc.substring(0,figureJSONLoc.length-4)+"svg")//,
+            //pdfLoc.substring(0,pdfLoc.length-4)+"/"+pdfLoc.split("/").last.substring(0,pdfLoc.split("/").last.length-4)+"-page"+svgImageCaptionNN.pNum+".svg")
           println(s"[imageBB]: ${asCoordinatesStr(svgImageCaptionNN.ImageBB)} [page number]: ${svgImageCaptionNN.pNum} " +
             s"[produced svg file at]: ${figureJSONLoc.substring(0,figureJSONLoc.length-4)+"svg"}")
         }
