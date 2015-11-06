@@ -1,5 +1,5 @@
 
-organization := "edu.psu.ist.sagnik.research"
+organization := "edu.ist.psu.sagnik.research"
 
 name := "pdffigurestosvg"
 
