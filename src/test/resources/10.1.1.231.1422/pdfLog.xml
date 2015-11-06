@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdfLog glyphs="true">
+    <fontList>
+        <font name="YUYMVY+Helvetica-Bold"
+        family="Helvetica-Bold" type="Font"
+        encoding="AFMEncoding" fontencoding="AFMEncoding"
+        basefont="YUYMVY+Helvetica-Bold"
+        bold="false" italic="false" symbol="true"/>
+        <font name="PTQNVY+Helvetica" family="Helvetica"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="PTQNVY+Helvetica"
+        bold="false" italic="false" symbol="true"/>
+        <font name="PURNVY+Helvetica~f" family="Helvetica~f"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="PURNVY+Helvetica~f" bold="false"
+        italic="false" symbol="true"/>
+        <font name="OQCOVY+Times-Bold" family="Times-Bold"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="OQCOVY+Times-Bold"
+        bold="false" italic="false" symbol="true"/>
+        <font name="MWGOVY+CMR9" family="CMR9"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="MWGOVY+CMR9" bold="false"
+        italic="false" symbol="true"/>
+        <font name="UKGNVY+CMBX9" family="CMBX9"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="UKGNVY+CMBX9" bold="false"
+        italic="false" symbol="true"/>
+        <font name="CSMNVY+Times-Roman" family="Times-Roman"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="CSMNVY+Times-Roman"
+        bold="false" italic="false" symbol="true"/>
+        <font name="TWXMVY+Times-Italic"
+        family="Times-Italic" type="Font"
+        encoding="AFMEncoding" fontencoding="AFMEncoding"
+        basefont="TWXMVY+Times-Italic" bold="false"
+        italic="false" symbol="true"/>
+        <font name="GQZNVY+CMTI9" family="CMTI9"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="GQZNVY+CMTI9" bold="false"
+        italic="false" symbol="true"/>
+        <font name="IIDOVY+CMMI9" family="CMMI9"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="IIDOVY+CMMI9" bold="false"
+        italic="false" symbol="true"/>
+        <font name="NWTMVY+CMR6" family="CMR6"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="NWTMVY+CMR6" bold="false"
+        italic="false" symbol="true"/>
+        <font name="FEQMVY+CMSY9" family="CMSY9"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="FEQMVY+CMSY9" bold="false"
+        italic="false" symbol="true"/>
+        <font name="LEENVY+CMSY6" family="CMSY6"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="LEENVY+CMSY6" bold="false"
+        italic="false" symbol="true"/>
+        <font name="NIONVY+CMMI6" family="CMMI6"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="NIONVY+CMMI6" bold="false"
+        italic="false" symbol="true"/>
+        <font name="TWXNVY+CMSY5" family="CMSY5"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="TWXNVY+CMSY5" bold="false"
+        italic="false" symbol="true"/>
+        <font name="VBFOVY+CMEX10" family="CMEX10"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="VBFOVY+CMEX10" bold="false"
+        italic="false" symbol="true"/>
+        <font name="ABLNVY+CMMI5" family="CMMI5"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="ABLNVY+CMMI5" bold="false"
+        italic="false" symbol="true"/>
+        <font name="DJLOVY+CMR5" family="CMR5"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="DJLOVY+CMR5" bold="false"
+        italic="false" symbol="true"/>
+        <font name="KMXMVY+CMCSC10" family="CMCSC10"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="KMXMVY+CMCSC10" bold="false"
+        italic="false" symbol="true"/>
+        <font name="OWPMVY+Times-Roman~4f"
+        family="Times-Roman~4f" type="Font"
+        encoding="null" fontencoding="null"
+        basefont="OWPMVY+Times-Roman~4f"
+        bold="false" italic="false" symbol="false"/>
+        <font name="XMPMVY+TTE18052B8t00"
+        family="TTE18052B8t00" type="Font"
+        encoding="null" fontencoding="null"
+        basefont="XMPMVY+TTE18052B8t00" bold="false"
+        italic="false" symbol="true"/>
+        <font name="ZOWMVY+CMMI8" family="CMMI8"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="ZOWMVY+CMMI8" bold="false"
+        italic="false" symbol="true"/>
+        <font name="QCHNVY+CMR8" family="CMR8"
+        type="Font" encoding="null" fontencoding="null"
+        basefont="QCHNVY+CMR8" bold="false"
+        italic="false" symbol="true"/>
+        <font name="FRPMVY+Helvetica~60"
+        family="Helvetica~60" type="Font"
+        encoding="null" fontencoding="null"
+        basefont="FRPMVY+Helvetica~60" bold="false"
+        italic="false" symbol="false"/>
+        <font name="KFVMVY+Symbol" family="Symbol"
+        type="Font" encoding="AFMEncoding"
+        fontencoding="AFMEncoding" basefont="KFVMVY+Symbol"
+        bold="false" italic="false" symbol="true"/>
+    </fontList>
+    <pdf filename="/home/szr163/svgimagesfromallenaipdffigures/src/test/resources/10.1.1.231.1422.pdf"
+    pageCount="8">
+        <page num="1">
+            <character font="CSMNVY+Times-Roman"
+            family="Times-Roman" name="null"
+            code="2">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="CSMNVY+Times-Roman"
+            family="Times-Roman" name="null"
+            code="2">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="CSMNVY+Times-Roman"
+            family="Times-Roman" name="null"
+            code="2">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+        </page>
+        <page num="2"/>
+        <page num="3">
+            <character font="NIONVY+CMMI6"
+            family="CMMI6" name="null" code="964">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="FEQMVY+CMSY9"
+            family="CMSY9" name="null" code="183">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="FEQMVY+CMSY9"
+            family="CMSY9" name="null" code="183">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="FEQMVY+CMSY9"
+            family="CMSY9" name="null" code="183">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+        </page>
+        <page num="4">
+            <character font="XMPMVY+TTE18052B8t00"
+            family="TTE18052B8t00" name="null"
+            code="-1">
+                <path stroke="black" fill="none"
+                d=" M 1.375 0.0 L 1.375 -6.875
+                L 6.875 -6.875 L 6.875 0.0
+                L 1.375 0.0 Z M 1.71875 -0.34375
+                L 6.53125 -0.34375 L 6.53125
+                -6.53125 L 1.71875 -6.53125
+                L 1.71875 -0.34375 Z " stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+        </page>
+        <page num="5"/>
+        <page num="6"/>
+        <page num="7"/>
+        <page num="8">
+            <character font="NIONVY+CMMI6"
+            family="CMMI6" name="null" code="946">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="NIONVY+CMMI6"
+            family="CMMI6" name="null" code="946">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="NIONVY+CMMI6"
+            family="CMMI6" name="null" code="946">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+            <character font="NIONVY+CMMI6"
+            family="CMMI6" name="null" code="947">
+                <path stroke="black" fill="none"
+                d="" stroke-width="0.005"
+                xmlns="http://www.w3.org/2000/svg"/>
+            </character>
+        </page>
+    </pdf>
+</pdfLog>
