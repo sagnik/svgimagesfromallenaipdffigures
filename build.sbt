@@ -5,20 +5,16 @@ name := "pdffigurestosvg"
 
 version := "0.0.1"
 
+scalaVersion := "2.11.7"
 
 javacOptions += "-Xlint:unchecked"
 
-scalaVersion := "2.11.7"
-
-crossScalaVersions := Seq("2.11.7", "2.10.5")
-  
 
 resolvers ++= Seq(
   "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/",
   "Sonatype Shapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
   "JAI releases" at "http://maven.geotoolkit.org/"
 )
-
 
 libraryDependencies ++= Seq(
    //jackson for json
@@ -41,9 +37,11 @@ libraryDependencies += "javax.media" % "jai_core" % "1.1.3"
 
 libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1"
 
+libraryDependencies += "edu.ist.psu.sagnik.research" % "inkscape-svg-processing" % "0.0.1-SNAPSHOT"
+
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
-//scalacOptions += "-target:jvm-1.8"
+scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warnings")
 
 fork := true
 
@@ -54,3 +52,4 @@ testOptions in Test += Tests.Argument("-oF")
 fork in Test := false
 
 parallelExecution in Test := false
+
