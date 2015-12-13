@@ -17,5 +17,7 @@ On sbt console,
 
 2. Change edu.ist.psu.sagnik.research.svgimageproducer.test.DataLocation.scala in `src/test/` to test with new data. 
 
- 
+### TODO
+
+change pdf2svg code to inkscape. Not getting good results from pdf2svg.
  
