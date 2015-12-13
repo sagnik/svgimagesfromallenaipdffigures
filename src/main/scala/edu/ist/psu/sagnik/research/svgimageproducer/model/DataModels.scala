@@ -6,7 +6,7 @@ package edu.ist.psu.sagnik.research.svgimageproducer.model
 case class AllenAIWord(Rotation: Int, Text: String, TextBB: Seq[Float])
 
 case class AllenAIImage(Caption: Option[String], CaptionBB: Option[Seq[Int]], Page: Option[Int],
-                        ImageBB: Option[Seq[Int]], ImageText: Option[Seq[AllenAIWord]], Mention: Option[String])
+                        ImageBB: Option[Seq[Int]], ImageText: Option[Seq[AllenAIWord]], Mention: Option[String], Width:Float, Height:Float)
 
 case class SVGPathString(pathContent:String, bb:Rectangle,pNum:Int)
 

@@ -5,6 +5,7 @@ import java.io.File
 import edu.ist.psu.sagnik.research.svgimageproducer.model.DirContent
 import org.xmlcml.pdf2svg.PDF2SVGConverter
 
+import scala.language.postfixOps
 /**
  * Created by szr163 on 11/3/15.
  */

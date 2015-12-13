@@ -37,7 +37,10 @@ libraryDependencies += "javax.media" % "jai_core" % "1.1.3"
 
 libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1"
 
-libraryDependencies += "edu.ist.psu.sagnik.research" % "inkscape-svg-processing" % "0.0.1-SNAPSHOT"
+lazy val root = Project("root", file(".")) dependsOn(inkscapesvgprocessing)
+
+lazy val inkscapesvgprocessing =
+  RootProject(uri("git://github.com/sagnik/inkscape-svg-processing"))
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 

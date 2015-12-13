@@ -8,6 +8,9 @@ package edu.ist.psu.sagnik.research.svgimageproducer.model
  * A quadrilateral, defined by its bottom-left point (x1,y1)
  * and its top-right point (x2, y2).
  */
+
+import scala.language.implicitConversions
+
 case class Rectangle(x1: Float, y1: Float, x2: Float, y2: Float)
 
 /**

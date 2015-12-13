@@ -6,6 +6,7 @@ import edu.ist.psu.sagnik.research.svgimageproducer.model._
 import edu.ist.psu.sagnik.research.svgimageproducer.model.Rectangle._
 import edu.ist.psu.sagnik.research.svgimageproducer.reader.{JSONReader, SVGReader}
 import scala.xml.Node
+import scala.language.postfixOps
 
 /**
  * Created by szr163 on 11/3/15.
