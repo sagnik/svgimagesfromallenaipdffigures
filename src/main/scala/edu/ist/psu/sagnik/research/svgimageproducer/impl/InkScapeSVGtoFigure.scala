@@ -7,6 +7,8 @@ import edu.ist.psu.sagnik.research.svgimageproducer.reader.JSONReader
 
 import java.io.File
 
+import edu.ist.psu.sagnik.research.svgimageproducer.writers.SVGWriter
+
 /**
  * Created by szr163 on 12/12/15.
  */
@@ -18,15 +20,17 @@ object InkScapeSVGtoFigure {
     val fpHtRatio=fig.Height / (pageSVGConent \@ "height").toFloat //TODO: possible exception
     if (scala.math.abs(fpWdRatio-fpHtRatio)>0.1) {println("error"); None}
     else {
+      //delibartely increasing figureBB.
       val figBB = fig.ImageBB match {
         case Some(bb) => Rectangle(
-          bb(0) / fpWdRatio -10f,
-          bb(1) / fpWdRatio -10f,
-          bb(2) / fpWdRatio +10f,
-          bb(3) / fpWdRatio +10f
+          bb(0) / fpWdRatio -5f,
+          bb(1) / fpWdRatio -5f,
+          bb(2) / fpWdRatio +5f,
+          bb(3) / fpWdRatio +5f
         )
         case _ => Rectangle(0, 0, 0, 0)
       }
+      println(figBB)
       Some(
         SVGPathExtract(pageSVGLoc).filter(a =>
           a.bb match{
@@ -38,13 +42,38 @@ object InkScapeSVGtoFigure {
     }
   }
 
-  def main(args: Array[String])={
-    val figJsonLoc="src/test/resources/10.1.1.101.912-Figure-2-mod.json"
-    val pageSVGLoc="src/test/resources/pg_0006.svg"
-    val figPaths=InkScapeSVGtoFigure(figJsonLoc,pageSVGLoc)
-    figPaths match{
-      case Some(paths) => paths.foreach(x => println(x.pContent))
-      case _ => println(None)
+  def main(args: Array[String])= {
+    val figJsonLoc = "src/test/resources/10.1.1.101.912-Figure-2-mod.json"
+    val pageSVGLoc = "src/test/resources/pg_0006.svg"
+    val svgLoc = "src/test/resources/test2.svg"
+    val figJson=JSONReader(figJsonLoc)
+    figJson.ImageBB match {
+      case Some(bb) => {
+        val pageSVGConent = scala.xml.XML.loadFile(new File(pageSVGLoc))
+        val fpWdRatio = (figJson.Width) / (pageSVGConent \@ "width").toFloat //TODO: possible exception
+        val fpHtRatio = (figJson.Height) / (pageSVGConent \@ "height").toFloat //TODO: possible exception
+        if (scala.math.abs(fpWdRatio - fpHtRatio) > 0.1) {
+          println("Ratio in figure and svg page doesn't match. Not processing anymore.");
+          sys.exit(1)
+        }
+        else {
+          val newBB = List(
+            bb(0) / fpWdRatio,
+            bb(1) / fpWdRatio,
+            bb(2) / fpWdRatio,
+            bb(3) / fpWdRatio
+          )
+          val figPaths = InkScapeSVGtoFigure(figJsonLoc, pageSVGLoc)
+          figPaths match {
+            case Some(paths) => SVGWriter(paths, newBB, svgLoc)
+            case _ => println("No path found")
+          }
+        }
+      }
+      case _ => println("couldn't get fig bb")
+
     }
   }
+
+
 }

@@ -1,5 +1,6 @@
 package edu.ist.psu.sagnik.research.svgimageproducer.writers
 
+import edu.ist.psu.sagnik.research.inkscapesvgprocessing.model.SVGPath
 import edu.ist.psu.sagnik.research.svgimageproducer.model.{SVGImageCaption}
 import scala.reflect.io.File
 
@@ -10,6 +11,34 @@ object SVGWriter {
 
   def apply(fc:SVGImageCaption,svgLoc:String):Unit=apply(fc,svgLoc,"")
 
+  def apply(figPaths:Seq[SVGPath],figBB:Seq[Float], svgLoc:String):Unit={
+
+    val translateX = -figBB(0)+5
+    val translateY= -figBB(1)+5
+
+    val width=figBB(2)-figBB(0)+5
+    val height=figBB(3)-figBB(1)+5
+
+    val svgStart="<?xml version=\"1.0\" standalone=\"no\"?>\n\n<svg height=\"" +
+      height +
+      "\" width=\"" +
+      width +
+      "\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">"+
+    "\n"
+
+    val gTransformString="<g transform=\"translate(" +
+      translateX +
+      "," +
+      translateY +
+      ")\">"+
+    "\n"
+
+    val svgString=figPaths.map(x=>x.pContent).foldLeft("")((a,b)=>a+"\n"+b)
+    val svgEnd="\n</g>\n</svg>"
+
+    File(svgLoc).writeAll(svgStart+gTransformString+svgString+svgEnd)
+
+  }
   def apply(fc:SVGImageCaption,svgLoc:String,pageSVGLoc:String):Unit={
     //println("in svg writer"+loc)
 
