@@ -32,6 +32,7 @@ object InkScapeSVGtoFigure {
         case _ => Rectangle(0, 0, 0, 0)
       }
       //println(figBB)
+      //SVGTextExtract(pageSVGLoc).foreach(x=>println(s"${x.content}, ${x.bb}"))
       (
         Some(
           SVGPathExtract(pageSVGLoc).filter(a =>
@@ -69,7 +70,7 @@ object InkScapeSVGtoFigure {
           )
           val figPaths = InkScapeSVGtoFigure(figJsonLoc, pageSVGLoc)
           figPaths match {
-            case (Some(paths),Some(chars)) => SVGWriter(paths, chars,newBB, svgLoc)
+            case (Some(paths),Some(chars)) => {println(s"[path length]: ${paths.length}, [char length]: ${chars.length}"); SVGWriter(paths, chars,newBB, svgLoc)}
             case (Some(paths),None) => SVGWriter(paths,newBB, svgLoc)
             case _ => println("No path found")
           }
