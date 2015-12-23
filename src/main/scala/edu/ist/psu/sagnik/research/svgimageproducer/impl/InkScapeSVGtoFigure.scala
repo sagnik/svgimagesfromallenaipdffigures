@@ -1,8 +1,9 @@
 package edu.ist.psu.sagnik.research.svgimageproducer.impl
 
-import edu.ist.psu.sagnik.research.inkscapesvgprocessing.impl.SVGPathExtract
+import edu.ist.psu.sagnik.research.inkscapesvgprocessing.impl.{SVGTextExtract, SVGPathExtract}
 import edu.ist.psu.sagnik.research.inkscapesvgprocessing.model.SVGPath
 import edu.ist.psu.sagnik.research.inkscapesvgprocessing.model.Rectangle
+import edu.ist.psu.sagnik.research.inkscapesvgprocessing.textparser.model.SVGChar
 import edu.ist.psu.sagnik.research.svgimageproducer.reader.JSONReader
 
 import java.io.File
@@ -13,12 +14,12 @@ import edu.ist.psu.sagnik.research.svgimageproducer.writers.SVGWriter
  * Created by szr163 on 12/12/15.
  */
 object InkScapeSVGtoFigure {
-  def apply(figJSONLoc:String, pageSVGLoc:String):Option[Seq[SVGPath]]={
+  def apply(figJSONLoc:String, pageSVGLoc:String):(Option[Seq[SVGPath]], Option[Seq[SVGChar]])={
     val fig=JSONReader(figJSONLoc)
     val pageSVGConent=scala.xml.XML.loadFile(new File(pageSVGLoc))
     val fpWdRatio=fig.Width / (pageSVGConent \@ "width").toFloat //TODO: possible exception
     val fpHtRatio=fig.Height / (pageSVGConent \@ "height").toFloat //TODO: possible exception
-    if (scala.math.abs(fpWdRatio-fpHtRatio)>0.1) {println("error"); None}
+    if (scala.math.abs(fpWdRatio-fpHtRatio)>0.1) {println("error"); (None,None)}
     else {
       //delibartely increasing figureBB.
       val figBB = fig.ImageBB match {
@@ -30,15 +31,18 @@ object InkScapeSVGtoFigure {
         )
         case _ => Rectangle(0, 0, 0, 0)
       }
-      println(figBB)
-      Some(
-        SVGPathExtract(pageSVGLoc).filter(a =>
-          a.bb match{
-            case Some(pathBB) => Rectangle.rectInside(pathBB,figBB)
-            case _ => false
-          }
+      //println(figBB)
+      (
+        Some(
+          SVGPathExtract(pageSVGLoc).filter(a =>
+            a.bb match{
+              case Some(pathBB) => Rectangle.rectInside(pathBB,figBB)
+              case _ => false
+            }
+          )
+        ),
+        Some(SVGTextExtract(pageSVGLoc).filter( a => Rectangle.rectInside(a.bb,figBB)))
         )
-      )
     }
   }
 
@@ -65,7 +69,8 @@ object InkScapeSVGtoFigure {
           )
           val figPaths = InkScapeSVGtoFigure(figJsonLoc, pageSVGLoc)
           figPaths match {
-            case Some(paths) => SVGWriter(paths, newBB, svgLoc)
+            case (Some(paths),Some(chars)) => SVGWriter(paths, chars,newBB, svgLoc)
+            case (Some(paths),None) => SVGWriter(paths,newBB, svgLoc)
             case _ => println("No path found")
           }
         }
