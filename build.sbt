@@ -40,7 +40,7 @@ libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1"
 lazy val root = Project("root", file(".")) dependsOn(inkscapesvgprocessing)
 
 lazy val inkscapesvgprocessing =
-  RootProject(uri("git://github.com/sagnik/inkscape-svg-processing"))
+  RootProject(uri("git://github.com/sagnik/inkscape-svg-processing.git"))
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
