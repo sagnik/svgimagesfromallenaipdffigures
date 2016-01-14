@@ -1,0 +1,1 @@
+pdftk your_file.pdf burst output your_directory/page_%02d.pdf
