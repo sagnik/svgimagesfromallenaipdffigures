@@ -59,9 +59,9 @@ object InkScapeSVGtoFigure {
 //    val pageSVGLoc = "src/test/resources/pg_0006.svg"
 //    val svgLoc = "src/test/resources/test2.svg"
 
-    val figJsonLoc = "src/test/resources/pdffigures/10.1.1.101.912-Figure-2-mod.json"
-    val pageSVGLoc = "src/test/resources/pdffigures.svg"
-    val svgLoc = "src/test/resources/test2.svg"
+    val figJsonLoc = "src/test/resources/pdffigures-extraction/tmp-Figure-1.json"
+    val pageSVGLoc = "src/test/resources/pdffigures/page_2.svg"
+    val svgLoc = "src/test/resources/test3.svg"
 
     val figJson=JSONReader(figJsonLoc)
     figJson.ImageBB match {
