@@ -64,24 +64,23 @@ object InkScapeSVGtoFigure {
     //    val pageSVGLoc = "src/test/resources/pdffigures/page_2.svg"
     //    val svgLoc = "src/test/resources/test3.svg"
 
-    val figJsonLoc = "src/test/resources/hassan-extraction/tmp-Figure-2.json"
-    val pageSVGLoc = "src/test/resources/hassan/page_08.svg"
-    val svgLoc = "src/test/resources/test4.svg"
+    //    val figJsonLoc = "src/test/resources/hassan-extraction/tmp-Figure-2.json"
+    //    val pageSVGLoc = "src/test/resources/hassan/page_08.svg"
+    //    val svgLoc = "src/test/resources/test4.svg"
 
 
-    val pdfLoc="src/test/resources/hassan.pdf"
+    val pdfLoc="src/test/resources/pdffigures.pdf"
     val figJsonDir=pdfLoc.substring(0,pdfLoc.length-4)
-    val svgDir=figJsonDir
 
-    val splitResult= Seq("pdftk",pdfLoc, "burst", "output",figJsonDir+"/page_%03d.pdf").!
-    println(s"[PDF splitting finished with exit code]:${splitResult}")
-    if (splitResult==0){
-      val pagePDFs=(new File(figJsonDir).listFiles().map(x=>x.getAbsolutePath).filter(x=>x.contains("page_"))).toList
-      val svgConversion=pagePDFs.map(x=>Seq("inkscape", "-l",x.substring(0,x.length-4)+".svg",x).!)
-      println(s"[SVG Conversion finished with exit code]:${svgConversion}")
-      if (Files.exists(Paths.get(figJsonDir))) {
-        val jsonFiles = (new File(figJsonDir).listFiles().map(x => x.getAbsolutePath).filter(x => x.endsWith("json"))).toList
-        if (jsonFiles.nonEmpty) {
+    if (Files.exists(Paths.get(figJsonDir))) {
+      val jsonFiles = (new File(figJsonDir).listFiles().map(x => x.getAbsolutePath).filter(x => x.endsWith("json"))).toList
+      if (jsonFiles.nonEmpty) {
+        val splitResult = Seq("pdftk", pdfLoc, "burst", "output", figJsonDir + "/page_%03d.pdf").!
+        println(s"[PDF splitting finished with exit code]:${splitResult}")
+        if (splitResult == 0) {
+          val pagePDFs = (new File(figJsonDir).listFiles().map(x => x.getAbsolutePath).filter(x => x.contains("page_"))).toList
+          val svgConversion = pagePDFs.map(x => Seq("inkscape", "-l", x.substring(0, x.length - 4) + ".svg", x).!)
+          println(s"[SVG Conversion finished with exit code]:${svgConversion}")
           val jsonMaps = jsonFiles.map(x =>
             (x,
               figJsonDir + "/page_" + {
@@ -89,24 +88,26 @@ object InkScapeSVGtoFigure {
                   case Some(p) => if (p.toString.length == 1) "00" + p.toString else if (p.toString.length == 2) "0" + p.toString else p.toString;
                   case _ => "999"
                 }
-              }+".svg",
-              x.substring(0,x.length-5)+".svg"
+              } + ".svg",
+              x.substring(0, x.length - 5) + ".svg"
               )
           )
-          jsonMaps.foreach(x=> {
-            if (createOneSvg(x._1,x._2,x._3))
+          jsonMaps.foreach(x => {
+            if (createOneSvg(x._1, x._2, x._3))
               println(s"Created svgFile: ${x._3} jsonFile: ${x._1} pageFile: ${x._2}");
             else
               println(s"Failed to create svgFile: ${x._3} jsonFile: ${x._1} pageFile: ${x._2}");
           }
           )
         }
-        else{println(s"[No figure/table found for PDF]: ${pdfLoc}")}
+        else
+          println(s"[Couldn't split PDF]: ${pdfLoc}")
       }
-
-
+      else
+        println(s"[No figure/table found for PDF]: ${pdfLoc}")
     }
-    else{println(s"[Couldn't split PDF]: ${pdfLoc}")}
+    else
+      println(s"[Output directory doesn't exist for PDF]: ${pdfLoc}")
   }
 
   def createOneSvg(figJsonLoc:String, pageSVGLoc:String, svgLoc:String):Boolean={
@@ -137,7 +138,7 @@ object InkScapeSVGtoFigure {
       }
     }
     else
-      {println(s"$pageSVGLoc or $figJsonLoc does not exist");false}
+    {println(s"$pageSVGLoc or $figJsonLoc does not exist");false}
 
   }
 
