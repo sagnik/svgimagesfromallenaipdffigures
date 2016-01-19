@@ -5,7 +5,6 @@ AllenAI pdffigures (https://github.com/allenai/pdffigures) produces JSON files f
 
 
 ### Dependency  
-Dependencies are included in the distribution itself because they were changed to support the needs.
 
 1. **pdftk** : https://www.pdflabs.com/tools/pdftk-server/
 2. **InkScape** : https://inkscape.org/en/
