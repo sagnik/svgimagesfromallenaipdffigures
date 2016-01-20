@@ -1,0 +1,22 @@
+InfoKey: Author
+InfoValue: Kazi Saidul Hasan ; Vincent Ng
+InfoKey: Producer
+InfoValue: pdfTeX-1.40.10
+InfoKey: Creator
+InfoValue: LaTeX with hyperref package
+InfoKey: ModDate
+InfoValue: D:20100825224409+08'00'
+InfoKey: PTEX.Fullbanner
+InfoValue: This is pdfTeX, Version 3.1415926-1.40.10-2.2 (TeX Live 2009) kpathsea version 5.0.0
+InfoKey: Title
+InfoValue: Conundrums in Unsupervised Keyphrase Extraction: Making Sense of the State-of-the-Art
+InfoKey: Subject
+InfoValue: POSTERS 2010
+InfoKey: CreationDate
+InfoValue: D:20100825224409+08'00'
+PdfID0: 3f7a5c8f1805ff71028444fa13b70
+PdfID1: 3f7a5c8f1805ff71028444fa13b70
+NumberOfPages: 9
+PageLabelNewIndex: 1
+PageLabelStart: 365
+PageLabelNumStyle: DecimalArabicNumerals
