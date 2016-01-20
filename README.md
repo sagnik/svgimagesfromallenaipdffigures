@@ -7,7 +7,7 @@ AllenAI pdffigures (https://github.com/allenai/pdffigures) produces JSON files f
 ### Dependency  
 
 1. **pdftk** : https://www.pdflabs.com/tools/pdftk-server/
-2. **InkScape** : https://inkscape.org/en/
+2. **InkScape** : https://inkscape.org/en/ (We need version 0.91, the latest stable version. The version number is important.)
 3. **inkscape-svg-processing** : https://github.com/sagnik/inkscape-svg-processing . This dependency is automatically handled by sbt.   
 
 Please make sure following commands work on your machine:

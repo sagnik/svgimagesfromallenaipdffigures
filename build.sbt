@@ -1,5 +1,3 @@
-jarName in assembly := "pdffigurestosvg.jar"
-
 organization := "edu.ist.psu.sagnik.research"
 
 name := "pdffigurestosvg"
