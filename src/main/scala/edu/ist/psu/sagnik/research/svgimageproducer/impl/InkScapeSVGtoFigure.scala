@@ -68,8 +68,7 @@ object InkScapeSVGtoFigure {
     //    val pageSVGLoc = "src/test/resources/hassan/page_08.svg"
     //    val svgLoc = "src/test/resources/test4.svg"
 
-
-    val pdfLoc="src/test/resources/hassan.pdf"
+    val pdfLoc=if (args.length > 0) args(0) else "src/test/resources/hassan.pdf"
     val figJsonDir=pdfLoc.substring(0,pdfLoc.length-4)
 
     if (Files.exists(Paths.get(figJsonDir))) {

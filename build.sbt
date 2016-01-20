@@ -8,6 +8,9 @@ scalaVersion := "2.11.7"
 
 javacOptions += "-Xlint:unchecked"
 
+assemblyJarName in assembly := "pdffigurestosvg.jar"
+
+mainClass in assembly := Some("edu.ist.psu.sagnik.research.svgimageproducer.impl.InkScapeSVGtoFigure")
 
 resolvers ++= Seq(
   "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/",
