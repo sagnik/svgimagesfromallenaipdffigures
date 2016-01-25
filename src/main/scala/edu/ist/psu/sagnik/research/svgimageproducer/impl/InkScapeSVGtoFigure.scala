@@ -68,7 +68,7 @@ object InkScapeSVGtoFigure {
     //    val pageSVGLoc = "src/test/resources/hassan/page_08.svg"
     //    val svgLoc = "src/test/resources/test4.svg"
 
-    val pdfLoc=if (args.length > 0) args(0) else "src/test/resources/hassan.pdf"
+    val pdfLoc=if (args.length > 0) args(0) else "/home/szr163/exp01mount/citeseer10000/10.1.1.100.3286.pdf"
     val figJsonDir=pdfLoc.substring(0,pdfLoc.length-4)
 
     if (Files.exists(Paths.get(figJsonDir))) {
@@ -76,10 +76,29 @@ object InkScapeSVGtoFigure {
       if (jsonFiles.nonEmpty) {
         val splitResult = Seq("pdftk", pdfLoc, "burst", "output", figJsonDir + "/page_%03d.pdf").!
         println(s"[PDF splitting finished with exit code]:${splitResult}")
+
         if (splitResult == 0) {
-          val pagePDFs = (new File(figJsonDir).listFiles().map(x => x.getAbsolutePath).filter(x => x.contains("page_"))).toList
+
+          val figurePages = jsonFiles.map(x=>JSONReader(x).Page match {
+            case Some(p) => if (p.toString.length == 1) "00" + p.toString else if (p.toString.length == 2) "0" + p.toString else p.toString;
+            case _ => "999"
+          }).distinct
+
+          println(figurePages)
+
+          val pagePDFs = (new File(figJsonDir).listFiles().map(x => x.getAbsolutePath).
+            filter(
+              x => x.contains("page_") &&
+                figurePages.contains(x.split("page_")(1).substring(0,x.split("page_")(1).length-4))
+            )
+            ).toList
+
+          println(pagePDFs)
+
           val svgConversion = pagePDFs.map(x => Seq("inkscape", "-l", x.substring(0, x.length - 4) + ".svg", x).!)
+
           println(s"[SVG Conversion finished with exit code]:${svgConversion}")
+
           val jsonMaps = jsonFiles.map(x =>
             (x,
               figJsonDir + "/page_" + {
@@ -91,11 +110,12 @@ object InkScapeSVGtoFigure {
               x.substring(0, x.length - 5) + ".svg"
               )
           )
+
           jsonMaps.foreach(x => {
             if (createOneSvg(x._1, x._2, x._3))
               println(s"Created svgFile: ${x._3} jsonFile: ${x._1} pageFile: ${x._2}");
             else
-              println(s"Failed to create svgFile: ${x._3} jsonFile: ${x._1} pageFile: ${x._2}");
+              println(s"Failed to create svgFile: ${x._3} from jsonFile: ${x._1} and pageFile: ${x._2}");
           }
           )
         }
