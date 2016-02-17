@@ -32,8 +32,10 @@ object InkScapeSVGtoFigure {
         case Some(bb) => Rectangle(
           bb(0) / fpWdRatio -5f,
           bb(1) / fpWdRatio -5f,
-          bb(2) / fpWdRatio +5f,
-          bb(3) / fpWdRatio +5f
+          //Following two changes are only for Hassan,things have worked 
+          //better in general with 5f, so more investigation needed.          
+          bb(2) / fpWdRatio +10f,
+          bb(3) / fpWdRatio +10f 
         )
         case _ => Rectangle(0, 0, 0, 0)
       }
