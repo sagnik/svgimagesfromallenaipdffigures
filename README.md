@@ -15,7 +15,7 @@ Most existing papers (and the systems such as the one mentioned before) work on 
 
 PDF to SVG is a 'loss less' conversion (the term is used loosely, no conversion is truly lossless) that retains the path information. This can be very helpful for many problems. SVG is a vector graphics format, you can analyze the extracted figure in any resolution. In comparison, if you want to produce just a 200 ppi image from a PDF, the conversion (`convert command from ImageMagick`) would take 50-60 seconds on a standard desktop machine. Better resolution would require more time. But we are mainly interested in the data extraction problem. One major pain is overlapping curves; if you have pixels, it is extremely hard to determine which pixel that curve came from, especially when many curves go through that pixel. But, the orignal plot was done by a plotting software, it must have plotted the curve in its entirety. If we can get back _the paths that painted a curve_ instead of the pixels, we can easily solve the overlap problem. Precisely, that is the purpose of this repository.
 
-Now, how helpful is it, really? Are you really benefitting from extracting the image as an SVG instead of a png? A demo is worth thousand words. So, see this: http://personal.psu.edu/szr163/hassan/hassan-Figure-2.html. 
+Now, how helpful is it, really? Are you really benefitting from extracting the image as an SVG instead of a png? A demo is worth a thousand words. So, see this: http://personal.psu.edu/szr163/hassan/hassan-Figure-2.html. 
 
 ### Dependency  
 
