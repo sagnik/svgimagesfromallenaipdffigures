@@ -37,6 +37,6 @@ If you don't plan to generate the Jar, comment out following two lines in build.
 `1. assemblyJarName in assembly := "pdffigurestosvg.jar"`   
 `2. mainClass in assembly := Some("edu.ist.psu.sagnik.research.svgimageproducer.impl.InkScapeSVGtoFigure")`
 
-If you wish to generate the fat jar, keep these files and use the beautiful `sbt-assembly` from https://github.com/sbt/sbt-assembly. 
+If you wish to generate the fat jar, keep these lines and use the beautiful `sbt-assembly` from https://github.com/sbt/sbt-assembly. 
 
 To see how the code works, on sbt console, clean, compile, run. This will run `edu.ist.psu.sagnik.research.svgimageproducer.impl.InkScapeSVGtoFigure`. This will split the input PDF (currently, `hassan.pdf`), convert each page into SVG and then extract the figures and tables from the PDF in SVG format (`tmp-Table/Figure-*.svg`). Every output will be stored in the folder `src/test/resources/hassan/`.  
