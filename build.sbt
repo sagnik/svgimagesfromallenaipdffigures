@@ -1,60 +1,52 @@
-organization := "edu.ist.psu.sagnik.research"
+// shared settings across root & all subprojects
 
-name := "pdffigurestosvg"
+version in ThisBuild := {
+  val major = 0
+  val minor = 0
+  val patch = 1
+  s"$major.$minor.$patch"
+}
 
-version := "0.0.1"
-
-scalaVersion := "2.11.7"
+scalaVersion in ThisBuild := "2.11.8"
 
 javacOptions += "-Xlint:unchecked"
 
-assemblyJarName in assembly := "pdffigurestosvg.jar"
+organization := "edu.psu.sagnik.research"
 
-mainClass in assembly := Some("edu.ist.psu.sagnik.research.svgimageproducer.impl.InkScapeSVGtoFigure")
+name := "pdffigurestosvg"
 
-resolvers ++= Seq(
-  "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/",
-  "Sonatype Shapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
-  "JAI releases" at "http://maven.geotoolkit.org/"
-)
+lazy val root = project
+  .in(file("."))
+  .aggregate(
+    data,
+    reader,
+    writer,
+    inkscapesvgs,
+    pdfs
+ )
+  .settings(publishArtifact := false)
 
-libraryDependencies ++= Seq(
-   //jackson for json
-  "org.json4s" %% "json4s-native" % "3.2.11",
-  "org.json4s" %% "json4s-jackson" % "3.2.10",
-  // pdf parsing libraries
-  "org.apache.pdfbox"    %  "pdfbox"          %  "1.8.7",
-  "org.apache.tika"      %  "tika-bundle"     %  "1.6",
-  // testing
-  "org.scalatest"        %% "scalatest"  %  "2.2.4",
-  //log4j
-  "log4j" % "log4j" % "1.2.15" excludeAll(
-    ExclusionRule(organization = "com.sun.jdmk"),
-    ExclusionRule(organization = "com.sun.jmx"),
-    ExclusionRule(organization = "javax.jms")
-    )
-  )
+lazy val data = project
+  .in(file("data"))
 
-libraryDependencies += "javax.media" % "jai_core" % "1.1.3"
+lazy val reader = project
+  .in(file("reader"))
+  .dependsOn(data)
 
-libraryDependencies += "commons-collections" % "commons-collections" % "3.2.1"
+lazy val writer = project
+  .in(file("writer"))
+  .dependsOn(data)
 
-lazy val root = Project("root", file(".")) dependsOn(inkscapesvgprocessing)
+lazy val inkscapesvgs = project
+  .in(file("inkscapesvgs"))
+  .dependsOn(reader)
+  .dependsOn(data)
+  .dependsOn(writer)
 
-lazy val inkscapesvgprocessing =
-  RootProject(uri("git://github.com/sagnik/inkscape-svg-processing"))
+lazy val pdfs = project
+  .in(file("pdfs"))
+  .dependsOn(reader)
+  .dependsOn(data)
 
-javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
-
-scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xfatal-warnings")
-
-fork := true
-
-testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
-
-testOptions in Test += Tests.Argument("-oF")
-
-fork in Test := false
-
-parallelExecution in Test := false
+lazy val subprojects: Seq[ProjectReference] = root.aggregate
 
